@@ -1,0 +1,74 @@
+@import "variables";
+@import "mixin";
+@import "container";
+@import "animation";
+@import "backingSection";
+@import "backingDetails";
+@import "backingMenu";
+@import "Backing_Selection";
+@import "customRadio";
+
+html{
+    box-sizing: border-box;
+    font-size: 100%;
+
+}
+*, *::before, *::after{
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-family: 'Commissioner', sans-serif;
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+//Helper class
+
+*.HideForTablet{
+    @include breakpoint-down(medium){
+        display: none;
+    }
+}
+
+*.HideForDesktop{
+    @include breakpoint-up(large){
+        display: none;
+    }
+}
+
+.Block{
+    width: 50.9vw;
+    min-height: 50px;
+    min-width: 325px;
+    margin: 0 auto;
+    transform: translateY(-94px);
+    @include breakpoint-down(medium){
+        width: 70vw;
+    }
+}
+
+.button{
+    height: 55px;
+    color: white;
+    font-weight: $Bold;
+    font-size: 15px;
+    padding: 20px 40px;
+    background-color: $ModerateCyan;
+    border-radius: 27px;
+    border: none;
+    line-height: 1;
+    &:hover{
+        background-color: $DarkCyan;
+        cursor: pointer;
+    }
+    &_inactive{
+        background-color: $DarkGray;
+        &:hover{
+            background-color: $DarkGray;
+            cursor: default;
+        }
+    }
+}

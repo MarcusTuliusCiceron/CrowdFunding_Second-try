@@ -1,0 +1,75 @@
+// basic animation
+
+
+@keyframes slidein {
+    0% {
+      transform: translateX(30%);
+      opacity: 0;
+      visibility: visible;
+    }
+  
+    100% {
+      transform: translateX(0%);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .slidein{
+      animation: slidein 0.3s linear 0s forwards;
+  }
+
+  @keyframes slideout {
+
+    0% {
+        transform: translateX(0%);
+        opacity: 1;
+        visibility: visible;
+      }
+    99% {
+      transform: translateX(30%);
+      opacity: 0;
+      visibility: visible;
+    }
+    100%{
+        transform: translateX(30%);
+        opacity: 0;
+        visibility: hidden;
+    }
+  }
+  .slideout{
+    animation: slideout 0.3s linear 0s forwards;
+  }
+
+@keyframes fadeIn{
+  0%{
+    visibility: visible;
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+    visibility: visible;
+  }
+}
+  .fadeIn{
+    animation: fadeIn 0.3s linear 0s forwards;
+  }
+
+  @keyframes fadeOut{
+    0%{
+      visibility: visible;
+      opacity: 1;
+    }
+    99%{
+      opacity: 0;
+      visibility: visible;
+    }
+    100%{
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+    .fadeOut{
+      animation: fadeOut 0.3s linear 0s forwards;
+    }
+   

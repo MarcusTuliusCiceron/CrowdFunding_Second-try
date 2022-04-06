@@ -1,0 +1,181 @@
+.Backing_Selection{
+    //display: none;
+    margin-top: 25px;
+    background-color: white;
+    padding: 46px 52px;
+    border-radius: 1rem;
+
+    @include breakpoint-down(medium){
+        padding: 23px 42px;
+    }
+    .top{
+        display: flex;
+        justify-content: space-between;
+    }
+    h2{
+        font-size: 25px;
+        font-weight: $Bold;
+        margin-bottom: 25px;
+    }
+    p{
+        color: $DarkGray;
+        margin-bottom: 36px;
+    }
+    .cross{
+        width: 17px;
+        height: 17px;
+        background-image: url(../../images/icon-close-modal.svg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        &:hover{
+            cursor: pointer;
+            background-image: url(../../images/icon-close-modal_copy.svg);
+        }
+    }
+    &_Items{
+
+    }
+    &_Item{
+        border: solid 1px $DarkGray;
+        border-radius: 0.5rem;
+        margin-bottom: 15px;
+        padding: 33px 26px;
+        .top{
+            display: flex;
+            margin-bottom: 20px;
+            &_left{
+                display: flex;
+                align-items: center;
+                gap: 22px;
+                @include breakpoint-down(medium){
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                h3{
+                    font-size: 15px;
+                    font-weight: $Bold;
+
+                }
+                p{
+                    margin: 0;
+                    font-size: 15px;
+                    font-weight: $Bold;
+                    color: $ModerateCyan;
+                    @include breakpoint-down(medium){
+                        
+                    }
+                }
+            }
+            &_right{
+                display: flex;
+                align-items: center;
+                p{
+                    margin: 0;
+                }
+            }
+        }
+        p{
+            margin-left: 45px;
+        }
+        .left_mobile{
+            margin-bottom: 0;
+            margin-bottom: 20px;
+            strong{
+                color: black;
+            }
+            p{
+                
+            }
+        }
+        .pledge_section{
+            display: none;
+        }
+    }
+}
+
+.Backing_Selection_Item.Unavailable{
+    opacity: 0.4;
+    p{
+        color: $DarkGray;
+    }
+    .CustomRadioGroup{
+        &:hover{
+            cursor: default;
+            h3{
+                color: black;
+            }
+            .CustomRadioBtn{
+                border: solid 1px $DarkGray;
+            }
+        }
+    }
+
+}
+
+.Backing_Selection_Item.Selected{
+    border: solid 2px $ModerateCyan;
+    .pledge_section{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid $DarkGray;
+        padding-top: 20px;
+        @include breakpoint-down(small){
+            flex-direction: column;
+        }
+        p{
+            margin: 0;
+            @include breakpoint-down(small){
+                margin-bottom: 10px;
+            }
+        }
+        .right{
+            display: flex;
+            align-items: center;
+            p{
+                margin: 0;
+                font-weight: $Bold;
+                transform: translateX(30px);
+            }
+            input{
+                height: 55px;
+                border-radius: 27px;
+                padding-left: 45px;
+                border: solid 1px $DarkGray;
+                width: 110px;
+                margin-right: 10px;
+                font-weight: $Bold;
+                color: black;
+                font-size: 17px;
+                &:focus{
+                    outline: none;
+                }
+            }
+            button{
+
+            }
+        }
+    }
+}
+
+.Overlay_Selection{
+    z-index: 7;
+    visibility: hidden;
+    padding: 0 25vw;
+    position: absolute;
+    background: linear-gradient(0deg, rgba(78,78,78,0.37) 0%, rgba(0,0,0,0.74) 100%);
+
+    left: -25vw;
+    right: -25vw;
+    top: -306px;
+    bottom: 0;
+    @include breakpoint-down(medium){
+        top: -206px;
+        padding: 0 15vw;
+    }
+}
+
+.Overlay_Selection.Active{
+    visibility: visible;
+}

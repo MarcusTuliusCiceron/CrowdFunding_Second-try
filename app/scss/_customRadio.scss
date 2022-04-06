@@ -1,0 +1,37 @@
+
+.CustomRadioGroup{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    .CustomRadioBtn{
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: solid 1px $DarkGray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .CustomRadioCheck{
+            width: 16px;
+            height: 16px;
+            background-color: $ModerateCyan;
+            border-radius: 50%;
+            display: none;
+        }
+        .CustomRadioCheck.Checked{
+            display: block;
+        }
+    }
+    h3{
+        color: black;
+    }
+    &:hover{
+        cursor: pointer;
+        h3{
+            color: $ModerateCyan;
+        }
+        .CustomRadioBtn{
+            border: solid 1px $ModerateCyan;
+        }
+    }
+}
