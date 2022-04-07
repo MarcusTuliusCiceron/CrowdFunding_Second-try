@@ -1,12 +1,9 @@
 @import "variables";
 @import "mixin";
-@import "container";
 @import "animation";
-@import "backingSection";
-@import "backingDetails";
-@import "backingMenu";
-@import "Backing_Selection";
 @import "customRadio";
+@import "Header";
+@import "ProjectBrief";
 
 html{
     box-sizing: border-box;
@@ -23,7 +20,9 @@ body{
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
+    background-color: #FAFAFA;
 }
+
 
 //Helper class
 
