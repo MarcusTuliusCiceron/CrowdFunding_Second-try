@@ -598,6 +598,7 @@
     width: 325px;
     padding: 0 23px;
     padding-bottom: 38px;
+    padding-top: 36px;
   }
 }
 
@@ -607,12 +608,179 @@
   font-weight: 700;
 }
 
+@media (max-width: 43.125em) {
+  .ProjectDetailsPledge h2 {
+    margin-bottom: 23px;
+  }
+}
+
 .ProjectDetailsPledge p {
   color: #7a7a7a;
   line-height: 1.92;
   font-size: 16px;
   display: block;
   margin-bottom: 22px;
+}
+
+.ProjectDetailsPledge p:nth-child(3) {
+  margin-bottom: 45px;
+}
+
+@media (max-width: 43.125em) {
+  .ProjectDetailsPledge p:nth-child(3) {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 43.125em) {
+  .ProjectDetailsPledge p {
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+}
+
+.PledgeDetail {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1.5fr 0.5fr 1fr;
+      grid-template-columns: 1.5fr 0.5fr 1fr;
+  -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto;
+      grid-template-areas: "A B C" "D D D" "E F G";
+  border: solid 1px #7a7a7a;
+  border-radius: 5px;
+  padding: 31px 32px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 43.125em) {
+  .PledgeDetail {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: auto auto auto auto auto;
+        grid-template-rows: auto auto auto auto auto;
+        grid-template-areas: "A" "C" "D" "E" "G";
+    padding: 20px 25px;
+  }
+}
+
+.PledgeDetail p, .PledgeDetail h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.PledgeDetail_Title {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: A;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 43.125em) {
+  .PledgeDetail_Title {
+    margin-bottom: 0;
+  }
+}
+
+.PledgeDetail_Price {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: C;
+  -ms-grid-column-align: end;
+      justify-self: end;
+  margin-bottom: 20px;
+}
+
+.PledgeDetail_Price p {
+  color: #3cb4ac;
+  font-weight: 500;
+}
+
+@media (max-width: 43.125em) {
+  .PledgeDetail_Price {
+    -ms-grid-column-align: start;
+        justify-self: start;
+  }
+}
+
+.PledgeDetail_Text {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: D;
+  margin-bottom: 13px;
+}
+
+@media (max-width: 43.125em) {
+  .PledgeDetail_Text {
+    margin-bottom: 10px;
+  }
+}
+
+.PledgeDetail_Text p {
+  font-weight: 500;
+}
+
+@media (max-width: 43.125em) {
+  .PledgeDetail_Text p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+}
+
+.PledgeDetail_Left {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: E;
+}
+
+.PledgeDetail_Left strong {
+  font-size: 30px;
+  font-weight: 700;
+  color: black;
+}
+
+@media (max-width: 43.125em) {
+  .PledgeDetail_Left {
+    margin-bottom: 19px;
+  }
+}
+
+.PledgeDetail_Button {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: G;
+  -ms-grid-column-align: end;
+      justify-self: end;
+}
+
+.PledgeDetail_Button .button {
+  height: 48px;
+  line-height: 1;
+  padding: 20px 35px;
+  border-radius: 24px;
+}
+
+@media (max-width: 43.125em) {
+  .PledgeDetail_Button {
+    -ms-grid-column-align: start;
+        justify-self: start;
+  }
+}
+
+.PledgeDetail.OutOfStock {
+  opacity: 0.35;
+}
+
+.PledgeDetail.OutOfStock .PledgeDetail_Button .button {
+  background-color: #7a7a7a;
+}
+
+.PledgeDetail.OutOfStock .PledgeDetail_Button .button:hover {
+  cursor: auto;
 }
 
 html {
@@ -673,6 +841,12 @@ body {
   border-radius: 27px;
   border: none;
   line-height: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .button:hover {

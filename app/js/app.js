@@ -123,7 +123,7 @@ class ProjectDetailsPledge extends React.Component{
                 to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve
                 your posture and make you more comfortable while at work, helping you stay focused on the task at hand.
             </p>
-            <p>
+            <p className="ProjectDetailsPledge_LastParagraph">
                 Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer
                 to allow notepads, pens, and USB sticks to be stored under the stand.
             </p>
@@ -132,7 +132,24 @@ class ProjectDetailsPledge extends React.Component{
                 rewardMinPrice={this.props.rewardMinPrice}
                 rewardStock={this.props.rewardStock}
                 index={1}>
-                    lalala
+                    You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
+                you’ll be added to a special Backer member list.
+            </PledgeDetail>
+            <PledgeDetail
+                rewardNameList={this.props.rewardNameList}
+                rewardMinPrice={this.props.rewardMinPrice}
+                rewardStock={this.props.rewardStock}
+                index={2}>
+                    You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
+                member list. Shipping is included.
+            </PledgeDetail>
+            <PledgeDetail
+                rewardNameList={this.props.rewardNameList}
+                rewardMinPrice={this.props.rewardMinPrice}
+                rewardStock={this.props.rewardStock}
+                index={3}>
+                    You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
+                to our Backer member list. Shipping is included.
             </PledgeDetail>
         </div>
     }
@@ -140,21 +157,22 @@ class ProjectDetailsPledge extends React.Component{
 
 class PledgeDetail extends React.Component{
     render(){
-        return <div className="PledgeDetail">
-            <div className="PledgeDetailTitle">
+        return <div className={this.props.rewardStock[this.props.index]>0 ? "PledgeDetail" : "PledgeDetail OutOfStock"}>
+            <div className="PledgeDetail_Title">
                 <h2>{this.props.rewardNameList[this.props.index]}</h2>
             </div>
-            <div className="PledgeDetailPrice">
+            <div className="PledgeDetail_Price">
                 <p>Pledge ${this.props.rewardMinPrice[this.props.index]} or more</p>
             </div>
-            <div className="PledgeDetailText">
+            <div className="PledgeDetail_Text">
                 <p>{this.props.children}</p>
             </div>
-            <div className="PledgeDetailLeft">
-                <p>{this.props.rewardStock}</p>
-            </div>
-            <div className="PledgeDetailButton">
+            <div className="PledgeDetail_Left">
 
+                <p><strong>{this.props.rewardStock[this.props.index]}</strong> left</p>
+            </div>
+            <div className="PledgeDetail_Button">
+                <button className="button">Select reward</button>
             </div>
         </div>
     }
