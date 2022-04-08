@@ -175,7 +175,7 @@ class PledgeDetail extends React.Component{
                 <p><strong>{this.props.rewardStock[this.props.index]}</strong> left</p>
             </div>
             <div className="PledgeDetail_Button">
-                <button className="button" onClick={this.props.handleModalToggle}>Select reward</button>
+                <button className="button" onClick={this.props.rewardStock[this.props.index]>0 ? this.props.handleModalToggle : null}>Select reward</button>
             </div>
         </div>
     }
@@ -208,7 +208,7 @@ class Modal extends React.Component{
 class ModalPledge extends React.Component{
     render(){
         return <div className="ModalPledge">
-            
+
         </div>
     }
 }
