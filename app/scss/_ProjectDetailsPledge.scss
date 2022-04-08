@@ -1,0 +1,30 @@
+.ProjectDetailsPledge{
+    width: 730px;
+    margin: 0 auto;
+    background-color: white;
+    position: relative;
+    border-radius: 7px;
+    padding: 50px 47px;
+    padding-bottom: 45px;
+    margin-top: 25px;
+
+    @include breakpoint-down(small){
+        width: 325px;
+        padding: 0 23px;
+        padding-bottom: 38px;
+    }
+
+    h2{
+        margin-bottom: 36px;
+        font-size: 20px;
+        font-weight: $Bold;
+        
+    }
+    p{
+        color: $DarkGray;
+        line-height: 1.92;
+        font-size: 16px;
+        display: block;
+        margin-bottom: 22px;
+    }
+}

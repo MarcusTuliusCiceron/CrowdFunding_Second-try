@@ -1,0 +1,81 @@
+.ProjectProgress{
+    width: 730px;
+    margin: 0 auto;
+    background-color: white;
+    position: relative;
+    border-radius: 7px;
+    padding: 48px 48px;
+    padding-bottom: 45px;
+    margin-top: 25px;
+
+    
+
+    @include breakpoint-down(small){
+        width: 325px;
+        padding: 0 23px;
+        padding-bottom: 38px;
+        padding-top: 38px;
+    }
+    &_grid{
+        display: flex;
+        margin-bottom: 36px;
+        @include breakpoint-down(small){
+            flex-direction: column;
+        }
+        &_col{
+            padding-right: 33px;
+            border-right: solid 1px $DarkGray;
+            &:nth-child(2){
+                padding-left: 45px;
+                padding-right: 88px;
+                @include breakpoint-down(small){
+                    padding: 0;
+                    padding-top: 20px;
+                    padding-bottom: 26px;
+                }
+            }
+            &:nth-child(3){
+                padding-left: 45px;
+                border-right: none;
+                @include breakpoint-down(small){
+                    padding: 0;
+                    padding-top: 18px;
+                    border: none;
+                }
+            }
+            strong{
+                display: block;
+                font-size: 33px;
+                font-weight: $Bold;
+                letter-spacing: 0.3px;
+                margin-bottom: 10px;
+                @include breakpoint-down(small){
+                    font-size: 31px;
+                }
+            }
+            p{
+                color: $DarkGray;
+            }
+            @include breakpoint-down(small){
+                border: none;
+                text-align: center;
+                padding: 0;
+                border-bottom: solid 1px $DarkGray;
+                padding-bottom: 18px;
+            }
+        }
+    }
+    &_progressBar{
+        height: 12px;
+        width: 100%;
+        background-color: #F4F4F4;
+        border-radius: 5px;
+        overflow: hidden;
+        &_progress{
+            height: 100%;
+            width: var(--progress);
+            background-color: $ModerateCyan;
+            border-radius: 15px;
+        }
+    }
+}

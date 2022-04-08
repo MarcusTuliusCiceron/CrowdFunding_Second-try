@@ -472,6 +472,149 @@
   background-image: url(../../images/icon-bookmark_copy.svg);
 }
 
+.ProjectProgress {
+  width: 730px;
+  margin: 0 auto;
+  background-color: white;
+  position: relative;
+  border-radius: 7px;
+  padding: 48px 48px;
+  padding-bottom: 45px;
+  margin-top: 25px;
+}
+
+@media (max-width: 43.125em) {
+  .ProjectProgress {
+    width: 325px;
+    padding: 0 23px;
+    padding-bottom: 38px;
+    padding-top: 38px;
+  }
+}
+
+.ProjectProgress_grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 43.125em) {
+  .ProjectProgress_grid {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+.ProjectProgress_grid_col {
+  padding-right: 33px;
+  border-right: solid 1px #7a7a7a;
+}
+
+.ProjectProgress_grid_col:nth-child(2) {
+  padding-left: 45px;
+  padding-right: 88px;
+}
+
+@media (max-width: 43.125em) {
+  .ProjectProgress_grid_col:nth-child(2) {
+    padding: 0;
+    padding-top: 20px;
+    padding-bottom: 26px;
+  }
+}
+
+.ProjectProgress_grid_col:nth-child(3) {
+  padding-left: 45px;
+  border-right: none;
+}
+
+@media (max-width: 43.125em) {
+  .ProjectProgress_grid_col:nth-child(3) {
+    padding: 0;
+    padding-top: 18px;
+    border: none;
+  }
+}
+
+.ProjectProgress_grid_col strong {
+  display: block;
+  font-size: 33px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 43.125em) {
+  .ProjectProgress_grid_col strong {
+    font-size: 31px;
+  }
+}
+
+.ProjectProgress_grid_col p {
+  color: #7a7a7a;
+}
+
+@media (max-width: 43.125em) {
+  .ProjectProgress_grid_col {
+    border: none;
+    text-align: center;
+    padding: 0;
+    border-bottom: solid 1px #7a7a7a;
+    padding-bottom: 18px;
+  }
+}
+
+.ProjectProgress_progressBar {
+  height: 12px;
+  width: 100%;
+  background-color: #F4F4F4;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.ProjectProgress_progressBar_progress {
+  height: 100%;
+  width: var(--progress);
+  background-color: #3cb4ac;
+  border-radius: 15px;
+}
+
+.ProjectDetailsPledge {
+  width: 730px;
+  margin: 0 auto;
+  background-color: white;
+  position: relative;
+  border-radius: 7px;
+  padding: 50px 47px;
+  padding-bottom: 45px;
+  margin-top: 25px;
+}
+
+@media (max-width: 43.125em) {
+  .ProjectDetailsPledge {
+    width: 325px;
+    padding: 0 23px;
+    padding-bottom: 38px;
+  }
+}
+
+.ProjectDetailsPledge h2 {
+  margin-bottom: 36px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.ProjectDetailsPledge p {
+  color: #7a7a7a;
+  line-height: 1.92;
+  font-size: 16px;
+  display: block;
+  margin-bottom: 22px;
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

@@ -78,6 +78,88 @@ class ProjectBrief extends React.Component{
     }
 }
 
+class ProjectProgress extends React.Component{
+
+    constructor(props){
+        super(props)
+        this.state = {
+            progress: props.fundRaised/props.fundGoal*100
+        }
+    }
+
+
+    render(){
+        console.log(this.state.progress)
+        document.documentElement.style.setProperty('--progress', `${this.state.progress}%` )
+        return <div className="ProjectProgress">
+            <div className="ProjectProgress_grid">
+                <div className="ProjectProgress_grid_col">
+                    <strong>${numberWithCommas(this.props.fundRaised)}</strong>
+                    <p>of ${numberWithCommas(this.props.fundGoal)} backed</p>
+                </div>
+                <div className="ProjectProgress_grid_col">
+                    <strong>{numberWithCommas(this.props.backers)}</strong>
+                    <p>total backers</p>
+                </div>
+                <div className="ProjectProgress_grid_col">
+                    <strong>{numberWithCommas(this.props.dayLeft)}</strong>
+                    <p>days left</p>
+                </div>
+            </div>
+            <div className="ProjectProgress_progressBar">
+                <div className="ProjectProgress_progressBar_progress">
+
+                </div>
+            </div>
+        </div>
+    }
+}
+
+class ProjectDetailsPledge extends React.Component{
+    render(){
+        return <div className="ProjectDetailsPledge">
+            <h2>About this project</h2>
+            <p>The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen
+                to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve
+                your posture and make you more comfortable while at work, helping you stay focused on the task at hand.
+            </p>
+            <p>
+                Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer
+                to allow notepads, pens, and USB sticks to be stored under the stand.
+            </p>
+            <PledgeDetail
+                rewardNameList={this.props.rewardNameList}
+                rewardMinPrice={this.props.rewardMinPrice}
+                rewardStock={this.props.rewardStock}
+                index={1}>
+
+            </PledgeDetail>
+        </div>
+    }
+}
+
+class PledgeDetail extends React.Component{
+    render(){
+        return <div className="PledgeDetail">
+            <div className="PledgeDetailTitle">
+                <h2>{this.props.rewardNameList[this.props.index]}</h2>
+            </div>
+            <div className="PledgeDetailPrice">
+
+            </div>
+            <div className="PledgeDetailText">
+
+            </div>
+            <div className="PledgeDetailLeft">
+
+            </div>
+            <div className="PledgeDetailButton">
+
+            </div>
+        </div>
+    }
+}
+
 class Page extends React.Component{
     constructor(props){
         super(props)
@@ -88,6 +170,7 @@ class Page extends React.Component{
             fundGoal: 100000,
             fundRaised: 89000,
             dayLeft: 56,
+            backers: 5007,
             rewardNameList: ["Pledge with no reward", "Bamboo Stand", "Black Edition Stand", "Mahogany Special Edition", "out of stock"],
             rewardMinPrice: [0, 25, 75, 200],
             rewardStock: [Infinity, 101, 64, 0]
@@ -109,6 +192,17 @@ class Page extends React.Component{
         return <div className="app">
             <Header hamburgerOpen = {this.state.hamburgerOpen} handleHamburger={this.handleHamburger}></Header>
             <ProjectBrief></ProjectBrief>
+            <ProjectProgress 
+                fundGoal={this.state.fundGoal} 
+                fundRaised={this.state.fundRaised} 
+                dayLeft={this.state.dayLeft} 
+                backers={this.state.backers}>
+            </ProjectProgress>
+            <ProjectDetailsPledge
+                rewardNameList={this.state.rewardNameList}
+                rewardMinPrice={this.state.rewardMinPrice}
+                rewardStock={this.state.rewardStock}>
+            </ProjectDetailsPledge>
         </div>
     }
 }
