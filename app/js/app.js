@@ -132,7 +132,7 @@ class ProjectDetailsPledge extends React.Component{
                 rewardMinPrice={this.props.rewardMinPrice}
                 rewardStock={this.props.rewardStock}
                 index={1}>
-
+                    lalala
             </PledgeDetail>
         </div>
     }
@@ -145,13 +145,13 @@ class PledgeDetail extends React.Component{
                 <h2>{this.props.rewardNameList[this.props.index]}</h2>
             </div>
             <div className="PledgeDetailPrice">
-
+                <p>Pledge ${this.props.rewardMinPrice[this.props.index]} or more</p>
             </div>
             <div className="PledgeDetailText">
-
+                <p>{this.props.children}</p>
             </div>
             <div className="PledgeDetailLeft">
-
+                <p>{this.props.rewardStock}</p>
             </div>
             <div className="PledgeDetailButton">
 
