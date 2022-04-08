@@ -64,7 +64,7 @@ class ProjectBrief extends React.Component{
             <h1>Mastercraft Bamboo Monitor Riser</h1>
             <p>A beautifully handcrafted monitor stand to reduce neck and eye strain</p>
             <div className="ProjectBrief_BottomLine">
-                <button className="button">Back this project</button>
+                <button className="button" onClick = {this.props.handleModalToggle}>Back this project</button>
                 <div className={this.state.bookmarked ? "ProjectBrief_BottomLine_Bookmark bookmarked" : "ProjectBrief_BottomLine_Bookmark"} onClick={this.handleBookmark}>
                     <div className="ProjectBrief_BottomLine_Bookmark_container">
                         <div className="ProjectBrief_BottomLine_Bookmark_circle">
@@ -131,6 +131,7 @@ class ProjectDetailsPledge extends React.Component{
                 rewardNameList={this.props.rewardNameList}
                 rewardMinPrice={this.props.rewardMinPrice}
                 rewardStock={this.props.rewardStock}
+                handleModalToggle={this.props.handleModalToggle}
                 index={1}>
                     You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
                 you’ll be added to a special Backer member list.
@@ -139,6 +140,7 @@ class ProjectDetailsPledge extends React.Component{
                 rewardNameList={this.props.rewardNameList}
                 rewardMinPrice={this.props.rewardMinPrice}
                 rewardStock={this.props.rewardStock}
+                handleModalToggle={this.props.handleModalToggle}
                 index={2}>
                     You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
                 member list. Shipping is included.
@@ -147,6 +149,7 @@ class ProjectDetailsPledge extends React.Component{
                 rewardNameList={this.props.rewardNameList}
                 rewardMinPrice={this.props.rewardMinPrice}
                 rewardStock={this.props.rewardStock}
+                handleModalToggle={this.props.handleModalToggle}
                 index={3}>
                     You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
                 to our Backer member list. Shipping is included.
@@ -172,8 +175,40 @@ class PledgeDetail extends React.Component{
                 <p><strong>{this.props.rewardStock[this.props.index]}</strong> left</p>
             </div>
             <div className="PledgeDetail_Button">
-                <button className="button">Select reward</button>
+                <button className="button" onClick={this.props.handleModalToggle}>Select reward</button>
             </div>
+        </div>
+    }
+}
+
+class Modal extends React.Component{
+    render() {
+        return <div className={this.props.modalOpen ? "ModalOverlay Open" : "ModalOverlay"}>
+            <div className="ModalStep1">
+                <h2>Back this project</h2>
+                <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
+                <div className="cross" onClick={this.props.handleModalToggle}>
+
+                </div>
+                <ModalPledge
+                    rewardNameList={this.props.rewardNameList}
+                    rewardMinPrice={this.props.rewardMinPrice}
+                    rewardStock={this.props.rewardStock}
+                    activeIndex={this.props.activeIndex}
+                    index={0}>
+                    Choose to support us without a reward if you simply believe in our project. As a backer,
+                    you will be signed up to receive product updates via email.
+                </ModalPledge>
+            </div>
+
+        </div>
+    }
+}
+
+class ModalPledge extends React.Component{
+    render(){
+        return <div className="ModalPledge">
+            
         </div>
     }
 }
@@ -184,17 +219,19 @@ class Page extends React.Component{
         this.state = {
             hamburgerOpen: false,
             modalOpen: false,
-            modelStep: 1,
+            modalStep: 1,
             fundGoal: 100000,
             fundRaised: 89000,
             dayLeft: 56,
             backers: 5007,
             rewardNameList: ["Pledge with no reward", "Bamboo Stand", "Black Edition Stand", "Mahogany Special Edition", "out of stock"],
             rewardMinPrice: [0, 25, 75, 200],
-            rewardStock: [Infinity, 101, 64, 0]
+            rewardStock: [Infinity, 101, 64, 0],
+            activeIndex: 0
         }
 
         this.handleHamburger = this.handleHamburger.bind(this)
+        this.handleModalToggle = this.handleModalToggle.bind(this)
     }
 
     handleHamburger(){
@@ -206,10 +243,19 @@ class Page extends React.Component{
         })
     }
 
+    handleModalToggle(){
+        const modalOpenPast = this.state.modalOpen
+        this.setState({ 
+            modalOpen: !modalOpenPast
+        })
+    }
+
+
+
     render(){
         return <div className="app">
             <Header hamburgerOpen = {this.state.hamburgerOpen} handleHamburger={this.handleHamburger}></Header>
-            <ProjectBrief></ProjectBrief>
+            <ProjectBrief handleModalToggle={this.handleModalToggle}></ProjectBrief>
             <ProjectProgress 
                 fundGoal={this.state.fundGoal} 
                 fundRaised={this.state.fundRaised} 
@@ -219,8 +265,18 @@ class Page extends React.Component{
             <ProjectDetailsPledge
                 rewardNameList={this.state.rewardNameList}
                 rewardMinPrice={this.state.rewardMinPrice}
-                rewardStock={this.state.rewardStock}>
+                rewardStock={this.state.rewardStock}
+                handleModalToggle={this.handleModalToggle}>
             </ProjectDetailsPledge>
+            <Modal
+                rewardNameList={this.state.rewardNameList}
+                rewardMinPrice={this.state.rewardMinPrice}
+                rewardStock={this.state.rewardStock}
+                activeIndex={this.state.activeIndex}
+                modalOpen={this.state.modalOpen}
+                modelStep={this.state.modalStep}
+                handleModalToggle={this.handleModalToggle}>
+            </Modal>
         </div>
     }
 }

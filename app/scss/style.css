@@ -783,6 +783,55 @@
   cursor: auto;
 }
 
+.ModalOverlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left bottom, left top, from(rgba(78, 78, 78, 0.37)), to(rgba(0, 0, 0, 0.73)));
+  background: linear-gradient(0deg, rgba(78, 78, 78, 0.37) 0%, rgba(0, 0, 0, 0.73) 100%);
+  visibility: hidden;
+}
+
+.ModalOverlay.Open {
+  visibility: visible;
+}
+
+.ModalStep1 {
+  position: fixed;
+  width: 730px;
+  height: 200px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 180px;
+  background-color: white;
+  border-radius: 0.6rem;
+  padding: 53px 50px;
+}
+
+.ModalStep1 h2 {
+  margin-bottom: 19px;
+}
+
+.ModalStep1 .cross {
+  background-image: url(../../images/icon-close-modal.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 33px;
+  right: 30px;
+}
+
+.ModalStep1 .cross:hover {
+  background-image: url(../../images/icon-close-modal_copy.svg);
+  cursor: pointer;
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
