@@ -885,7 +885,68 @@
   cursor: pointer;
 }
 
+.ModalStep2 {
+  position: absolute;
+  width: 530px;
+  scroll-behavior: auto;
+  min-height: 30px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 180px;
+  background-color: white;
+  border-radius: 0.6rem;
+  padding: 53px 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 43.125em) {
+  .ModalStep2 {
+    width: 325px;
+    padding: 0 23px;
+    padding-bottom: 38px;
+    padding-top: 36px;
+  }
+}
+
+.ModalStep2 .logoCheck {
+  width: 80px;
+  aspect-ratio: 1;
+  background-image: url(../../images/icon-check.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #3cb4ac;
+  border-radius: 50%;
+  margin-bottom: 50px;
+}
+
+.ModalStep2 h2 {
+  margin-bottom: 50px;
+  font-size: 30px;
+}
+
+.ModalStep2 p {
+  margin-bottom: 50px;
+  color: #7a7a7a;
+  line-height: 1.6;
+}
+
 .ModalStep1.hide {
+  visibility: hidden;
+}
+
+.ModalStep2.hide {
   visibility: hidden;
 }
 

@@ -239,6 +239,16 @@ class Modal extends React.Component{
                     you will be signed up to receive product updates via email.
                 </ModalPledge>
             </div>
+            <div className={this.props.modalStep == 2 ? "ModalStep2" : "ModalStep2 hide"}>
+                <div className="logoCheck">
+
+                </div>
+                <h2>Thanks for your support</h2>
+                <p>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
+                    an email once our campaign is completed.
+                </p>
+                <button className="button" onClick={this.props.handleCloseModal}>Got it</button>
+            </div>
 
         </div>
     }
@@ -299,11 +309,11 @@ class Page extends React.Component{
         super(props)
         this.state = {
             hamburgerOpen: false,
-            modalOpen: true,
+            modalOpen: false,
             modalStep: 1,
             fundGoal: 100000,
-            fundRaised: 89000,
-            progress: 89,
+            fundRaised: 89914,
+            progress: 89.914,
             dayLeft: 56,
             backers: 5007,
             rewardNameList: ["Pledge with no reward", "Bamboo Stand", "Black Edition Stand", "Mahogany Special Edition", "out of stock"],
@@ -319,6 +329,7 @@ class Page extends React.Component{
         this.handleRadioClick = this.handleRadioClick.bind(this)
         this.handleInputChange = this.handleInputChange.bind(this)
         this.handleSubmitModal = this.handleSubmitModal.bind(this)
+        this.handleCloseModal = this.handleCloseModal.bind(this)
     }
 
     handleHamburger(){
@@ -382,14 +393,14 @@ class Page extends React.Component{
             let enteredValidFuture = enteredValidPast
             enteredValidPast[i] = true
             this.setState({
-                modalStep: 1,
+                modalStep: 2,
                 fundRaised: this.state.fundRaised + parseInt(this.state.enteredAmount[i]),
                 backers: this.state.backers + 1,
-                modalOpen: false,
                 rewardStock: rewardStockFuture,
                 progress: this.state.fundRaised +  parseInt(this.state.enteredAmount[i]) * 100,
                 enteredValid: enteredValidFuture
             })
+            window.scrollTo(0, 0)
         }
         else {
             let enteredValidPast = this.state.enteredValid
@@ -399,6 +410,13 @@ class Page extends React.Component{
                 enteredValid: enteredValidFuture
             })
         }
+    }
+
+    handleCloseModal(){
+        this.setState({
+            modalStep: 1,
+            modalOpen: false
+        })
     }
 
 
@@ -431,7 +449,8 @@ class Page extends React.Component{
                 handleModalToggle={this.handleModalToggle}
                 handleRadioClick={this.handleRadioClick}
                 handleInputChange={this.handleInputChange}
-                handleSubmitModal={this.handleSubmitModal}>
+                handleSubmitModal={this.handleSubmitModal}
+                handleCloseModal={this.handleCloseModal}>
             </Modal>
         </div>
     }
@@ -443,8 +462,7 @@ ReactDOM.render(<Page/>, document.querySelector('#app'))
 
 
   Thanks for your support!
-  Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
-  an email once our campaign is completed.
+  
   Got it!
 
   <!-- Success modal end -->
