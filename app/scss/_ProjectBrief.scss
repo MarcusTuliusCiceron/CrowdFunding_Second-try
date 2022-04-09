@@ -1,5 +1,5 @@
 .ProjectBrief{
-    width: 730px;
+    max-width: 730px;
     margin: 0 auto;
     background-color: white;
     text-align: center;
@@ -9,9 +9,10 @@
     padding-bottom: 45px;
 
     @include breakpoint-down(small){
-        width: 325px;
+        //width: 325px;
         padding: 0 23px;
         padding-bottom: 38px;
+        margin: 0 24px
     }
     &_Logo{
         width: 56px;

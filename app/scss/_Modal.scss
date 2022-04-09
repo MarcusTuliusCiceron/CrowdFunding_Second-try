@@ -14,7 +14,7 @@
 }
 .ModalStep1{
     position: absolute;
-    width: 730px;
+    max-width: 730px;
     scroll-behavior: auto;
     left: 50%;
     transform: translateX(-50%);
@@ -23,7 +23,7 @@
     border-radius: 0.6rem;
     padding: 53px 50px;
     @include breakpoint-down(small){
-        width: 325px;
+        margin: 0 24px;
         padding: 0 23px;
         padding-bottom: 38px;
         padding-top: 36px;

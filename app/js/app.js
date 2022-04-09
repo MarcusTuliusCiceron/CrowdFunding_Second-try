@@ -127,6 +127,7 @@ class ProjectDetailsPledge extends React.Component{
                 rewardMinPrice={this.props.rewardMinPrice}
                 rewardStock={this.props.rewardStock}
                 handleModalToggle={this.props.handleModalToggle}
+                handleOpenModal={this.props.handleOpenModal}
                 index={1}>
                     You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
                 you’ll be added to a special Backer member list.
@@ -136,6 +137,7 @@ class ProjectDetailsPledge extends React.Component{
                 rewardMinPrice={this.props.rewardMinPrice}
                 rewardStock={this.props.rewardStock}
                 handleModalToggle={this.props.handleModalToggle}
+                handleOpenModal={this.props.handleOpenModal}
                 index={2}>
                     You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
                 member list. Shipping is included.
@@ -145,6 +147,7 @@ class ProjectDetailsPledge extends React.Component{
                 rewardMinPrice={this.props.rewardMinPrice}
                 rewardStock={this.props.rewardStock}
                 handleModalToggle={this.props.handleModalToggle}
+                handleOpenModal={this.props.handleOpenModal}
                 index={3}>
                     You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
                 to our Backer member list. Shipping is included.
@@ -170,7 +173,7 @@ class PledgeDetail extends React.Component{
                 <p><strong>{this.props.rewardStock[this.props.index]}</strong> left</p>
             </div>
             <div className="PledgeDetail_Button">
-                <button className="button" onClick={this.props.rewardStock[this.props.index]>0 ? this.props.handleModalToggle : null}>Select reward</button>
+                <button className="button" onClick={this.props.rewardStock[this.props.index]>0 ? this.props.handleOpenModal.bind(this, this.props.index) : null}>Select reward</button>
             </div>
         </div>
     }
@@ -195,6 +198,7 @@ class Modal extends React.Component{
                     handleRadioClick={this.props.handleRadioClick}
                     handleInputChange={this.props.handleInputChange}
                     handleSubmitModal={this.props.handleSubmitModal}
+                    
                     index={0}>
                     Choose to support us without a reward if you simply believe in our project. As a backer,
                     you will be signed up to receive product updates via email.
@@ -330,6 +334,7 @@ class Page extends React.Component{
         this.handleInputChange = this.handleInputChange.bind(this)
         this.handleSubmitModal = this.handleSubmitModal.bind(this)
         this.handleCloseModal = this.handleCloseModal.bind(this)
+        this.handleOpenModal = this.handleOpenModal.bind(this)
     }
 
     handleHamburger(){
@@ -349,6 +354,14 @@ class Page extends React.Component{
         if( modalOpenPast == false){
             window.scrollTo(0, 0)
         }
+    }
+
+    handleOpenModal(i){
+        this.setState({
+            modalOpen: true,
+            activeIndex: i
+        })
+        window.scrollTo(0, 0)
     }
 
     handleRadioClick(i){
@@ -436,7 +449,8 @@ class Page extends React.Component{
                 rewardNameList={this.state.rewardNameList}
                 rewardMinPrice={this.state.rewardMinPrice}
                 rewardStock={this.state.rewardStock}
-                handleModalToggle={this.handleModalToggle}>
+                handleModalToggle={this.handleModalToggle}
+                handleOpenModal={this.handleOpenModal}>
             </ProjectDetailsPledge>
             <Modal
                 rewardNameList={this.state.rewardNameList}

@@ -310,8 +310,8 @@
   height: 3px;
   background-color: white;
   margin-top: 3px;
-  -webkit-transform-origin: 1px 2px;
-          transform-origin: 1px 2px;
+  -webkit-transform-origin: 0px 1px;
+          transform-origin: 0px 1px;
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
 }
@@ -375,7 +375,7 @@
 }
 
 .ProjectBrief {
-  width: 730px;
+  max-width: 730px;
   margin: 0 auto;
   background-color: white;
   text-align: center;
@@ -387,9 +387,9 @@
 
 @media (max-width: 43.125em) {
   .ProjectBrief {
-    width: 325px;
     padding: 0 23px;
     padding-bottom: 38px;
+    margin: 0 24px;
   }
 }
 
@@ -514,7 +514,7 @@
 }
 
 .ProjectProgress {
-  width: 730px;
+  max-width: 730px;
   margin: 0 auto;
   background-color: white;
   position: relative;
@@ -526,7 +526,8 @@
 
 @media (max-width: 43.125em) {
   .ProjectProgress {
-    width: 325px;
+    margin: 0 24px;
+    margin-top: 25px;
     padding: 0 23px;
     padding-bottom: 38px;
     padding-top: 38px;
@@ -624,7 +625,7 @@
 }
 
 .ProjectDetailsPledge {
-  width: 730px;
+  max-width: 730px;
   margin: 0 auto;
   background-color: white;
   position: relative;
@@ -636,10 +637,11 @@
 
 @media (max-width: 43.125em) {
   .ProjectDetailsPledge {
-    width: 325px;
     padding: 0 23px;
     padding-bottom: 38px;
     padding-top: 36px;
+    margin: 0 24px;
+    margin-top: 25px;
   }
 }
 
@@ -840,7 +842,7 @@
 
 .ModalStep1 {
   position: absolute;
-  width: 730px;
+  max-width: 730px;
   scroll-behavior: auto;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -853,7 +855,7 @@
 
 @media (max-width: 43.125em) {
   .ModalStep1 {
-    width: 325px;
+    margin: 0 24px;
     padding: 0 23px;
     padding-bottom: 38px;
     padding-top: 36px;

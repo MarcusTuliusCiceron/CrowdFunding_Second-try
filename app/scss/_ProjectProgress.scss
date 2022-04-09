@@ -1,5 +1,5 @@
 .ProjectProgress{
-    width: 730px;
+    max-width: 730px;
     margin: 0 auto;
     background-color: white;
     position: relative;
@@ -11,7 +11,8 @@
     
 
     @include breakpoint-down(small){
-        width: 325px;
+        margin: 0 24px;
+        margin-top: 25px;
         padding: 0 23px;
         padding-bottom: 38px;
         padding-top: 38px;
