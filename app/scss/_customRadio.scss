@@ -3,6 +3,7 @@
     display: flex;
     gap: 20px;
     align-items: center;
+    width: fit-content;
     .CustomRadioBtn{
         width: 26px;
         height: 26px;
@@ -22,9 +23,30 @@
             display: block;
         }
     }
-    h3{
-        color: black;
+    .CustomRadioLabel{
+        display: flex;
+        align-items: center;
+        @include breakpoint-down(small){
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        &_Title{
+            h3{
+                font-size: 17px;
+            }
+        }
+        &_Price{
+            p{
+                margin: 0;
+                margin-left: 10px;
+                color: $ModerateCyan;
+                @include breakpoint-down(small){
+                    margin: 0;
+                }
+            }
+        }
     }
+
     &:hover{
         cursor: pointer;
         h3{

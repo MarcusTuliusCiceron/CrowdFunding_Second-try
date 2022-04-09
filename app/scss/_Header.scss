@@ -34,7 +34,7 @@
 
         &_Nav{
             display: flex;
-
+            
             
             a, a:visited{
                 font-size: 13px;
@@ -52,6 +52,7 @@
         }
 
         &_HamburgerBtn{
+            z-index: 3;
             span{
                 display: block;
                 width: 16px;
@@ -91,6 +92,7 @@
     top: 0;
     bottom: 0;
     background: linear-gradient(0deg, rgba(78,78,78,0.37) 0%, rgba(0,0,0,0.73) 100%);
+    z-index: 2;
 
     .HamburgerMenu{
         position: fixed;

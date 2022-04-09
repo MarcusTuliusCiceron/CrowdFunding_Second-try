@@ -6,26 +6,33 @@
     bottom: 0;
     background: linear-gradient(0deg, rgba(78,78,78,0.37) 0%, rgba(0,0,0,0.73) 100%);
     visibility: hidden;
+    z-index: 4;
 }
 
 .ModalOverlay.Open{
     visibility: visible;
 }
 .ModalStep1{
-    position: fixed;
+    position: absolute;
     width: 730px;
-    height: 200px;
+    scroll-behavior: auto;
     left: 50%;
     transform: translateX(-50%);
     top: 180px;
     background-color: white;
     border-radius: 0.6rem;
     padding: 53px 50px;
+    @include breakpoint-down(small){
+        width: 325px;
+        padding: 0 23px;
+        padding-bottom: 38px;
+        padding-top: 36px;
+    }
     h2{
         margin-bottom: 19px;
     }
     p{
-
+        margin-bottom: 37px;
     }
     .cross{
         background-image: url(../../images/icon-close-modal.svg);
@@ -41,5 +48,172 @@
             background-image: url(../../images/icon-close-modal_copy.svg);
             cursor: pointer;
         }
+    }
+}
+
+.ModalStep1.hide{
+    visibility: hidden;
+}
+
+.ModalPledge{
+    border: solid 1px $DarkGray;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 22px;
+    
+    &_Top{
+        padding: 34px 25px;
+        
+        border-bottom: none;
+        display: grid;
+        grid-template-columns: 26px auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "A A B"
+        "D C C";
+        align-items: center;
+
+        @include breakpoint-down(small){
+            padding-top: 20px;
+            padding-bottom: 20px;
+            grid-template-columns: auto auto;
+            grid-template-rows: auto auto auto;
+            grid-template-areas: 
+            "A A"
+            "C C"
+            "B B";
+        }
+
+        &_Radio{
+            grid-area: A;
+            margin-bottom: 12px;
+        }
+        &_Left{
+            grid-area: B;
+            justify-self: flex-end;
+            margin-bottom: 12px;
+            p{
+                margin: 0;
+            }
+            @include breakpoint-down(small){
+                justify-self: flex-start;
+            }
+        }
+        &_Text{
+            grid-area: C;
+            p{
+                margin: 0;
+                padding-left: 16px;
+                font-size: 15px;
+                color: $DarkGray;
+                font-weight: $Medium;
+                line-height: 1.7;
+                @include breakpoint-down(small){
+                    padding: 0;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+    &_Bottom{
+        height: 0;
+        padding: 0;
+        display: grid;
+        width: 100%;
+        grid-template-columns: calc(100% - 260px) auto auto;
+        grid-template-rows: auto;
+        align-items: center;
+        grid-template-areas: 
+        "A B C";
+        @include breakpoint-down(small){
+            grid-template-columns: 50% 50%;
+            grid-template-rows: 70px auto;
+            align-items: center;
+            grid-template-areas: 
+            "A A"
+            "B C";
+        }
+        p{
+            display: block;
+            align-self: center;
+            margin: 0;
+            grid-area: A;
+            @include breakpoint-down(small){
+                text-align: center;
+            }
+        }
+        .input{
+            position: relative;
+            height: 100%;
+            grid-area: B;
+            .placeholder{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: 20px;
+                color: $DarkGray;
+                font-weight: $Bold;
+                font-size: 17px;
+            }
+            input{
+                height: 100%;
+                border-radius: 27px;
+                width: 110px;
+                border: solid 1px $DarkGray;
+                padding-left: 30px;
+                color: black;
+                font-weight: $Bold;
+                font-size: 16px;
+    
+                @include breakpoint-down(small){
+                    width: 80px;
+                }
+                &:focus{
+                    outline: none;
+                    border: solid 1px $ModerateCyan;
+                }
+            }
+        }
+        .input.Error{
+            input{
+                border: solid 3px red;
+            }
+        }
+        button{
+            justify-self: flex-end;
+            grid-area: C;
+            @include breakpoint-down(small){
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+}
+
+.ModalPledge_Top.OutOfStock{
+    opacity: 0.4;
+    .ModalPledge_Top_Radio{
+        .CustomRadioGroup:hover{
+            cursor: auto;
+            h3{
+                color: black;
+            }
+            .CustomRadioBtn{
+                border: solid 1px $DarkGray;
+            }
+        }
+    }
+
+}
+
+.ModalPledge.Active{
+    border: solid 3px $ModerateCyan;
+    .ModalPledge_Top{
+        border-bottom: solid 1px $DarkGray;
+    }
+    .ModalPledge_Bottom{
+        padding: 27px 32px;
+        height: auto;
+        
     }
 }

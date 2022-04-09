@@ -437,8 +437,6 @@ class Backing extends React.Component{
         this.setState(
             {enteredAmount : e.target.value}
         )
-    
-
     }
 
     render(){

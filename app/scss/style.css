@@ -150,6 +150,9 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .CustomRadioGroup .CustomRadioBtn {
@@ -180,8 +183,41 @@
   display: block;
 }
 
-.CustomRadioGroup h3 {
-  color: black;
+.CustomRadioGroup .CustomRadioLabel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 43.125em) {
+  .CustomRadioGroup .CustomRadioLabel {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+.CustomRadioGroup .CustomRadioLabel_Title h3 {
+  font-size: 17px;
+}
+
+.CustomRadioGroup .CustomRadioLabel_Price p {
+  margin: 0;
+  margin-left: 10px;
+  color: #3cb4ac;
+}
+
+@media (max-width: 43.125em) {
+  .CustomRadioGroup .CustomRadioLabel_Price p {
+    margin: 0;
+  }
 }
 
 .CustomRadioGroup:hover {
@@ -264,6 +300,10 @@
   cursor: pointer;
 }
 
+.Header_Bar_HamburgerBtn {
+  z-index: 3;
+}
+
 .Header_Bar_HamburgerBtn span {
   display: block;
   width: 16px;
@@ -303,6 +343,7 @@
   bottom: 0;
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(78, 78, 78, 0.37)), to(rgba(0, 0, 0, 0.73)));
   background: linear-gradient(0deg, rgba(78, 78, 78, 0.37) 0%, rgba(0, 0, 0, 0.73) 100%);
+  z-index: 2;
 }
 
 .Overlay .HamburgerMenu {
@@ -689,7 +730,6 @@
   -ms-grid-row: 1;
   -ms-grid-column: 3;
   grid-area: C;
-  -ms-grid-column-align: end;
       justify-self: end;
   margin-bottom: 20px;
 }
@@ -709,7 +749,6 @@
 .PledgeDetail_Text {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
   grid-area: D;
   margin-bottom: 13px;
 }
@@ -792,6 +831,7 @@
   background: -webkit-gradient(linear, left bottom, left top, from(rgba(78, 78, 78, 0.37)), to(rgba(0, 0, 0, 0.73)));
   background: linear-gradient(0deg, rgba(78, 78, 78, 0.37) 0%, rgba(0, 0, 0, 0.73) 100%);
   visibility: hidden;
+  z-index: 4;
 }
 
 .ModalOverlay.Open {
@@ -799,9 +839,9 @@
 }
 
 .ModalStep1 {
-  position: fixed;
+  position: absolute;
   width: 730px;
-  height: 200px;
+  scroll-behavior: auto;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -811,8 +851,21 @@
   padding: 53px 50px;
 }
 
+@media (max-width: 43.125em) {
+  .ModalStep1 {
+    width: 325px;
+    padding: 0 23px;
+    padding-bottom: 38px;
+    padding-top: 36px;
+  }
+}
+
 .ModalStep1 h2 {
   margin-bottom: 19px;
+}
+
+.ModalStep1 p {
+  margin-bottom: 37px;
 }
 
 .ModalStep1 .cross {
@@ -830,6 +883,225 @@
 .ModalStep1 .cross:hover {
   background-image: url(../../images/icon-close-modal_copy.svg);
   cursor: pointer;
+}
+
+.ModalStep1.hide {
+  visibility: hidden;
+}
+
+.ModalPledge {
+  border: solid 1px #7a7a7a;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+
+.ModalPledge_Top {
+  padding: 34px 25px;
+  border-bottom: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 26px auto auto;
+      grid-template-columns: 26px auto auto;
+  -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto;
+      grid-template-areas: "A A B" "D C C";
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 43.125em) {
+  .ModalPledge_Top {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -ms-grid-columns: auto auto;
+        grid-template-columns: auto auto;
+    -ms-grid-rows: auto auto auto;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "A A" "C C" "B B";
+  }
+}
+
+.ModalPledge_Top_Radio {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: A;
+  margin-bottom: 12px;
+}
+
+.ModalPledge_Top_Left {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: B;
+  justify-self: flex-end;
+  margin-bottom: 12px;
+}
+
+.ModalPledge_Top_Left p {
+  margin: 0;
+}
+
+@media (max-width: 43.125em) {
+  .ModalPledge_Top_Left {
+    justify-self: flex-start;
+  }
+}
+
+.ModalPledge_Top_Text {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: C;
+}
+
+.ModalPledge_Top_Text p {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 15px;
+  color: #7a7a7a;
+  font-weight: 500;
+  line-height: 1.7;
+}
+
+@media (max-width: 43.125em) {
+  .ModalPledge_Top_Text p {
+    padding: 0;
+    margin-bottom: 30px;
+  }
+}
+
+.ModalPledge_Bottom {
+  height: 0;
+  padding: 0;
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  -ms-grid-columns: calc(100% - 260px) auto auto;
+      grid-template-columns: calc(100% - 260px) auto auto;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+      grid-template-areas: "A B C";
+}
+
+@media (max-width: 43.125em) {
+  .ModalPledge_Bottom {
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+    -ms-grid-rows: 70px auto;
+        grid-template-rows: 70px auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+        grid-template-areas: "A A" "B C";
+  }
+}
+
+.ModalPledge_Bottom p {
+  display: block;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 0;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: A;
+}
+
+@media (max-width: 43.125em) {
+  .ModalPledge_Bottom p {
+    text-align: center;
+  }
+}
+
+.ModalPledge_Bottom .input {
+  position: relative;
+  height: 100%;
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: B;
+}
+
+.ModalPledge_Bottom .input .placeholder {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 20px;
+  color: #7a7a7a;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.ModalPledge_Bottom .input input {
+  height: 100%;
+  border-radius: 27px;
+  width: 110px;
+  border: solid 1px #7a7a7a;
+  padding-left: 30px;
+  color: black;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+@media (max-width: 43.125em) {
+  .ModalPledge_Bottom .input input {
+    width: 80px;
+  }
+}
+
+.ModalPledge_Bottom .input input:focus {
+  outline: none;
+  border: solid 1px #3cb4ac;
+}
+
+.ModalPledge_Bottom .input.Error input {
+  border: solid 3px red;
+}
+
+.ModalPledge_Bottom button {
+  justify-self: flex-end;
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: C;
+}
+
+@media (max-width: 43.125em) {
+  .ModalPledge_Bottom button {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.ModalPledge_Top.OutOfStock {
+  opacity: 0.4;
+}
+
+.ModalPledge_Top.OutOfStock .ModalPledge_Top_Radio .CustomRadioGroup:hover {
+  cursor: auto;
+}
+
+.ModalPledge_Top.OutOfStock .ModalPledge_Top_Radio .CustomRadioGroup:hover h3 {
+  color: black;
+}
+
+.ModalPledge_Top.OutOfStock .ModalPledge_Top_Radio .CustomRadioGroup:hover .CustomRadioBtn {
+  border: solid 1px #7a7a7a;
+}
+
+.ModalPledge.Active {
+  border: solid 3px #3cb4ac;
+}
+
+.ModalPledge.Active .ModalPledge_Top {
+  border-bottom: solid 1px #7a7a7a;
+}
+
+.ModalPledge.Active .ModalPledge_Bottom {
+  padding: 27px 32px;
+  height: auto;
 }
 
 html {
@@ -896,6 +1168,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media (max-width: 43.125em) {
+  .button {
+    height: 50px;
+    border-radius: 25px;
+  }
 }
 
 .button:hover {
